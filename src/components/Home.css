@@ -1,0 +1,30 @@
+@font-face {
+    font-family: 'FuturaNo2Std-Medium';
+    src: url('../assets/Fonts/futura-no-2-medium-dee.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+.home-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.center-block {
+    display: flex;
+    flex-direction: column;
+
+    width: 100%;
+}
+
+.g-text {
+    display: flex;
+    justify-content: center;
+    color: #fff;
+    padding: 0.8rem;
+    margin: 10px;
+    font-family: 'FuturaNo2Std-Medium', sans-serif;
+    font-size: 50px;
+    /* or whatever looks nice */
+}

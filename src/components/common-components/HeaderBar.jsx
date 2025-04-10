@@ -10,20 +10,18 @@ const Bar = styled.div`
   flex-direction : row;
   align-items: center;
   justify-content : space-between;
-  padding: 0.5rem;
-  border-radius: 20px;
   height : 20px;
-  margin : 20px;
+  margin : 15px;
 `;
 
 const InnerBar = styled.div`
-display : flex;
-flex-direction : row;
-align-items: center;
-justify-content: center;
-padding : 0.3rem;
-border-radius : 10px;
-background-color: #2f3133;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  padding: 0.3rem;
+  border-radius: 10px;
+  background-color: #2f3133;
 `;
 
 const DeepBar = styled.div`

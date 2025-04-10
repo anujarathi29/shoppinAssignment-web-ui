@@ -1,0 +1,6 @@
+{
+    "appId"  : "google-clone-2901",
+    "appName" : "GoogleHomePageClone",
+    "webDir" : "dist",
+    "bundleWebRuntime" : false
+}

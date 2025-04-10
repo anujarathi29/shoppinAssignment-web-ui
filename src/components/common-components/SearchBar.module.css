@@ -1,0 +1,253 @@
+@font-face {
+    font-family: 'FuturaNo2Std-Medium';
+    src: url('../assets/Fonts/futura-no-2-medium-dee.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+.searchContainer {
+    display: flex;
+    align-items: center;
+    padding: 0.8rem;
+    border-radius: 50px;
+    background-color: #2f3133;
+    height: 30px;
+}
+
+.inputWrapper {
+    position: relative;
+    flex: 1;
+}
+
+.searchIcon {
+    position: absolute;
+    top: 50%;
+    left: 10px;
+    transform: translateY(-50%);
+    width: 16px;
+    height: 16px;
+    pointer-events: none;
+}
+
+.input {
+    padding: 0.4rem 0.4rem 0.4rem 2rem;
+    width: 98%;
+    border: none;
+    border-radius: 50px;
+    background-color: #2f3133;
+    color: white;
+    outline: none;
+    height: 30px;
+
+    @media (max-width: 480px) {
+        width : 90%;
+    }
+}
+
+.input::placeholder {
+    color: #9ca3af;
+}
+
+.actionButton {
+    background: transparent;
+    border: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    height: 45px;
+    width: 45px;
+
+    &:hover {
+        background-color: #434954;
+        border-radius: 50%;
+        transform: scale(1.1);
+    }
+}
+
+.buttonIcon {
+    height: 24px;
+    width: 24px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.clearButton {
+    position: absolute;
+    right: 2px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: transparent;
+    border: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    border-radius: 50%;
+}
+
+.clearIcon {
+    font-size: 16px;
+    color: #9ca3af;
+}
+
+.voiceSearchContainer {
+    position: relative;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #202124;
+    z-index: 1000;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+
+    @media (max-width: 480px) {
+        height : 70%;
+    }
+}
+
+.voiceSearchHeader {
+    width: 95%;
+    display: flex;
+    justify-content: space-between;
+    padding: 15px 10px
+}
+
+
+.voiceSearchContent {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.backButton {
+    background: rgba(255, 255, 255, 0.1);
+    border: none;
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+    color: white;
+    font-size: 20px;
+}
+
+.languageButton {
+    background: rgba(255, 255, 255, 0.1);
+    border: none;
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+
+.speakNowText {
+    color: #bdc1c6;
+    font-size: 28px;
+    font-weight: 400;
+    margin-bottom: 80px;
+    margin-top: 50px;
+    font-family: 'FuturaNo2Std-Medium', sans-serif;
+
+    @media (max-width: 480px) {
+        margin-bottom: 50px;
+        margin-top: 20px;;
+    }
+}
+
+.recognizedText {
+    color: white;
+    font-size: 24px;
+    margin-bottom: 80px;
+    text-align: center;
+    max-width: 80%;
+    margin-top: 50px;
+    font-family: 'FuturaNo2Std-Medium', sans-serif;
+
+    @media (max-width: 480px) {
+        margin-bottom: 50px;
+        margin-top: 20px;;
+    }
+}
+
+/* best part! - the animation */
+
+@keyframes bounce {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-10%);
+    }
+}
+
+.dotsContainer {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    margin-top: 100px;
+
+
+    @media (max-width: 480px) {
+        margin-bottom: 50px;
+        margin-top: 50px;;
+    }
+}
+
+.dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    animation: bounce 1.5s infinite;
+}
+
+.dotBlue {
+    background-color: #4285F4;
+    animation-delay: 0s;
+}
+
+.dotRed {
+    background-color: #EA4335;
+    animation-delay: 0.2s;
+}
+
+.dotYellow {
+    background-color: #FBBC05;
+    animation-delay: 0.4s;
+}
+
+.dotGreen {
+    background-color: #34A853;
+    animation-delay: 0.6s;
+}
+
+
+.songSearchButton {
+    background-color: #303134;
+    color: #E8EAED;
+    border: none;
+    border-radius: 24px;
+    padding: 12px 24px;
+    font-size: 16px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    cursor: pointer;
+    margin-top: 140px;
+
+    @media (max-width: 480px) {
+        margin-bottom: 50px;
+        margin-top: 50px;;
+    }
+}

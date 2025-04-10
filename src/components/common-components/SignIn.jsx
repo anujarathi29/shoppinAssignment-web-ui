@@ -12,7 +12,7 @@ import personalisedSearch from '../../assets/personalisedSearch.svg';
 import settings from '../../assets/settings.svg';
 import helpFeedback from '../../assets/helpFeedback.svg';
 import signout from '../../assets/signout.svg';
-import './SignIn.css';
+import Styles from './SignIn.module.css';
 
 
 const firebaseConfig = {
@@ -25,7 +25,7 @@ const firebaseConfig = {
   measurementId: import.meta.env.VITE_APP_FIREBASE_MEASUREMENT_ID
 };
 
-console.log("firebase obj is : ", firebaseConfig)
+// console.log("firebase obj is : ", firebaseConfig)
 
 const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
@@ -112,12 +112,12 @@ const SignIn = () => {
 
   return (
     <>
-      <div className='signin-container' ref={dropdownRef}>
+      <div ref={dropdownRef} className={Styles.signin_container} >
         {
           user ?
             (<>
               <div
-                className='profile'
+                className={Styles.profile}
                 onClick={toggleDropdown}
                 title={user.displayName || 'User account'}
               >
@@ -126,11 +126,11 @@ const SignIn = () => {
                     <img
                       src={user.photoURL}
                       alt={user.displayName || 'User'}
-                      className='display-image'
+                      className={Styles.display_image}
                     />
                   ) : (
                     <div
-                      className="profile-initial"
+                      className={Styles.profile_initial}
                       style={{ backgroundColor: getBackgroundColor() }}
                     >
                       {getUserInitial()}
@@ -138,144 +138,147 @@ const SignIn = () => {
                   )}
               </div>
               {dropdownOpen && (
-                <div className='dropdown-container'>
-                  <div className='dropdown-header'>
-                    <button className='cross-button' onClick={() => setDropdownOpen(false)}>
+                <div className={Styles.dropdown_container}>
+                  <div className={Styles.dropdown_header}>
+                    <button className={Styles.cross_button} onClick={() => setDropdownOpen(false)}>
                       X
                     </button>
-                    <div className='g-text'>
+                    <div className={Styles.g_text}>
                       Google
                     </div>
-                    <div className='down-arrow'>
+                    <div className={Styles.down_arrow}>
                       <img
                         src={downArrow}
-                        className='icons'
+                        className={Styles.icons}
                       />
                     </div>
                   </div>
 
-                  <div className='user-info'>
+                  <div className={Styles.user_info}>
                     {user.photoURL ? (
                       <img
                         src={user.photoURL}
                         alt={user.displayName || 'User'}
-                        className='dropdown-display-image'
+                        className={Styles.dropdown_display_image}
                       />
                     ) : (
                       <div
-                        className="dropdown-profile-initial"
+                        className={Styles.dropdown_profile_initial}
                         style={{ backgroundColor: getBackgroundColor() }}
                       >
                         {getUserInitial()}
                       </div>
                     )}
-                    <div className='user-email-info'>
-                      <div className='user-name'>{user.displayName}</div>
-                      <div className='user-email'>{user.email}</div>
+                    <div className={Styles.user_email_info}>
+                      <div className={Styles.user_name}>{user.displayName}</div>
+                      <div className={Styles.user_email}>{user.email}</div>
                     </div>
                   </div>
 
-                  <button className='manage-google-account'>
+                  <button className={Styles.manage_google_account}>
                     Manage your Google Account
                   </button>
-                  <div className='divider'></div>
-                  <div className='dropdown-item-container'>
-                    <div className='items'>
-                      <div className='icons'>
+                  <div className={Styles.divider}></div>
+                  <div className={Styles.dropdown_item_container}>
+                    <div className={Styles.items}>
+                      <div className={Styles.icons}>
                         <img src={incognito} />
                       </div>
-                      <div className='item-text'>Turn on Incognito</div>
+                      <div className={Styles.item_text}>Turn on Incognito</div>
                     </div>
 
-                    <div className='items'>
-                      <div className='icons'>
+                    <div className={Styles.items}>
+                      <div className={Styles.icons}>
                         <img src={searchHistory} />
                       </div>
-                      <div className='item-text'>Search history</div>
-                      <div className='item-text-right'>Saving</div>
+                      <div className={Styles.item_text}>Search history</div>
+                      <div className={Styles.item_text_right}>Saving</div>
                     </div>
-                    <div className='sub-divider'></div>
-                    <div className='items sub-item'>
-                      <div className='item-text sub-text'>Delete last 15 mins</div>
+                    <div className={Styles.sub_divider}></div>
+                    <div className={`${Styles.items} ${Styles.sub_item}`}>
+                      <div className={`${Styles.item_text} ${Styles.sub_text}`}>Delete last 15 mins</div>
                     </div>
 
-                    <div className='items'>
-                      <div className='icons'>
+                    <div className={Styles.items}>
+                      <div className={Styles.icons}>
                         <img src={safeSearch} />
                       </div>
-                      <div className='item-text'>SafeSearch</div>
+                      <div className={Styles.item_text}>SafeSearch</div>
                     </div>
 
-                    <div className='items'>
-                      <div className='icons'>
+                    <div className={Styles.items}>
+                      <div className={Styles.icons}>
                         <img src={interests} />
                       </div>
-                      <div className='item-text'>Interests</div>
+                      <div className={Styles.item_text}>Interests</div>
                     </div>
 
-                    <div className='items'>
-                      <div className='icons'>
+                    <div className={Styles.items}>
+                      <div className={Styles.icons}>
                         <img src={password} />
                       </div>
-                      <div className='item-text'>Passwords</div>
+                      <div className={Styles.item_text}>Passwords</div>
                     </div>
 
-                    <div className='items'>
-                      <div className='icons'>
+                    <div className={Styles.items}>
+                      <div className={Styles.icons}>
                         <img src={yourProfile} />
                       </div>
-                      <div className='item-text'>Your profile</div>
+                      <div className={Styles.item_text}>Your profile</div>
                     </div>
 
-                    <div className='items'>
-                      <div className='icons'>
+                    <div className={Styles.items}>
+                      <div className={Styles.icons}>
                         <img src={personalisedSearch} />
                       </div>
-                      <div className='item-text'>Search personalisation</div>
+                      <div className={Styles.item_text}>Search personalisation</div>
                     </div>
 
-                    <div className='divider'></div>
+                    <div className={Styles.divider}></div>
 
-                    <div className='items'>
-                      <div className='icons'>
+                    <div className={Styles.items}>
+                      <div className={Styles.icons}>
                         <img src={settings} />
                       </div>
-                      <div className='item-text'>Settings</div>
+                      <div className={Styles.item_text}>Settings</div>
                     </div>
 
-                    <div className='items'>
-                      <div className='icons'>
+                    <div className={Styles.items}>
+                      <div className={Styles.icons}>
                         <img src={helpFeedback} />
                       </div>
-                      <div className='item-text'>Help and feedback</div>
+                      <div className={Styles.item_text}>Help and feedback</div>
                     </div>
-                    <div className='divider'></div>
+                    <div className={Styles.divider}></div>
 
-                    <div className='items' onClick={handleSignOut}>
-                    <div className='icons'>
+                    <div className={Styles.items} onClick={handleSignOut}>
+                    <div className={Styles.icons}>
                         <img src={signout} />
                       </div>
-                      <div className='item-text'>Sign out</div>
+                      <div className={Styles.item_text}>Sign out</div>
                     </div>
-                    <div className='divider'></div>
-                    <div className='footer'>
+                    <div className={Styles.divider}></div>
+                    <div className={Styles.footer}>
                       <span>Privacy Policy</span>
-                      <span className='dot-separator'>•</span>
+                      <span className={Styles.dot_separator}>•</span>
                       <span>Terms of Service</span>
                     </div>
                   </div>
                 </div>
+            
               )}
+
             </>
             ) : (
               <button
                 onClick={handleSignIn}
-                className='sign-in-button'
+                className={Styles.sign_in_button}
                 title='Sign in with google'
               >
                 Sign In
-              </button>)
+              </button>)   
         }
+      
       </div>
     </>
   )
