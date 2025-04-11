@@ -1,0 +1,217 @@
+@font-face {
+    font-family: 'FuturaNo2Std-Medium';
+    src: url('../../assets/Fonts/futura-no-2-medium-dee.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+  }
+  
+
+.topContainer {
+    width: 95%;
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 10px;
+    position: relative;
+    padding-bottom: 70px;
+  }
+
+  .feedContainer {
+    width: 95%;
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 10px;
+    position: relative;
+  }
+  
+  .loading {
+    text-align: center;
+    padding: 20px;
+    color: #555;
+  }
+  
+  .feedCard {
+    background-color: #1c1c1e;
+    border-radius: 16px;
+    margin-bottom: 16px;
+    overflow: hidden;
+    color: #fff;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+  }
+  
+  .cardHeader {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+    padding: 10px 16px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    font-size: 14px;
+  }
+  
+  .interests {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+    padding: 10px 16px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    font-size: 14px;
+  }
+
+  .yellowTab {
+    min-width: 70px;
+    min-height: 50px;
+    background-color: #826d46;
+    border-radius: 40px;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+  }
+
+  .blueTab {
+    min-width: 70px;
+    min-height: 50px;
+    background-color: #4e6175;
+    border-radius: 40px;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+  }
+
+  .greenTab {
+    min-width: 70px;
+    min-height: 50px;
+    background-color: #33423b;
+    border-radius: 40px;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+  }
+
+  .redTab {
+    min-width: 70px;
+    min-height: 50px;
+    background-color: #493034;
+    border-radius: 40px;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+  }
+
+
+  .infoContainer, .airQuality {
+    display: flex;
+    flex-direction: column;
+    min-width: 85px;
+    gap: 4px;
+    font-family: 'FuturaNo2Std-Medium', sans-serif;
+    color : #fff;
+    padding: 8px;
+    border-radius: 12px;
+    border : 1px solid #8e8e93;
+  }
+  
+  .infoSubContent {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .temp {
+    display: flex;
+    align-items: center;
+  }
+  
+  .weatherIcon {
+    margin-left: 4px;
+  }
+  
+  .aqiLevel {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+  
+  .aqiIndicator {
+    color: #f4d03f; 
+    font-size: 18px;
+  }
+  
+  .cardBody {
+    position: relative;
+    
+  }
+  
+  .thumbnail {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    border-radius: 25px;
+    aspect-ratio: 16/9;
+  }
+  
+  .cardTitle {
+    padding: 12px 16px;
+    margin: 0;
+    font-size: 16px;
+    line-height: 1.4;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    font-family: 'FuturaNo2Std-Medium', sans-serif;
+  }
+  
+  .bottomNav {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    display: flex;
+    justify-content: space-around;
+    background-color: #303134;
+    padding: 10px 0;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    z-index: 10;
+  }
+  
+  .navButton {
+    background: transparent;
+    border: none;
+    color: #8e8e93;
+    padding: 8px 16px;
+    border-radius: 20px;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .navButton.active {
+    color: #ffffff;
+    background-color: rgba(65, 79, 184, 0.972);
+  }
+  
+
+  @media (max-width: 600px) {
+    .feedContainer {
+      padding: 8px;
+    }
+    
+    .cardTitle {
+      font-size: 14px;
+      padding: 10px 12px;
+    }
+
+    .infoContainer {
+        min-width: 60px;
+        margin-right: 3px;
+        overflow-x: scroll;
+    }
+  }
+  
+  @media (min-width: 601px) {
+    .bottomNav {
+      max-width: 600px;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+  }
