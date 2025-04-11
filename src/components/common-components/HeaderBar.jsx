@@ -11,7 +11,7 @@ const Bar = styled.div`
   align-items: center;
   justify-content : space-between;
   height : 20px;
-  margin : 15px;
+  margin : 18px;
 `;
 
 const InnerBar = styled.div`
