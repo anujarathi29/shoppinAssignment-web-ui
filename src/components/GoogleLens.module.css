@@ -452,13 +452,9 @@
 @media screen and (max-width: 620px) {
   .cameraView {
     height: calc(100vh - 56px);
-    /* Adjust for smaller header/footer */
   }
 }
 
-/* Keep your existing styles and add these modern, responsive styles for the search results */
-
-/* Search Results View - Full Screen */
 .resultsView {
   position: fixed;
   top: 0;
@@ -472,10 +468,9 @@
   z-index: 100;
   overflow-y: auto;
   -webkit-overflow-scrolling: touch;
-  /* Smooth scrolling on iOS */
+
 }
 
-/* Search Header with Profile */
 .searchHeader {
   height: 60px;
   padding: 8px;
@@ -504,6 +499,7 @@
   padding: 0 14px;
   color: #aaa;
   font-size: 15px;
+  font-family: 'FuturaNo2Std-Medium', sans-serif;
 }
 
 .searchThumbnail {
@@ -667,7 +663,7 @@
 
 
 .feedbackBar {
-  position: fixed;
+  position: relative;
   bottom: 56px;
   left: 0;
   width: 100%;
@@ -678,6 +674,7 @@
   padding: 14px 16px;
   z-index: 20;
   box-shadow: 0 -1px 3px rgba(0, 0, 0, 0.2);
+  font-family: 'FuturaNo2Std-Medium', sans-serif;
 }
 
 .feedbackQuestion {

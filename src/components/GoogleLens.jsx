@@ -17,20 +17,24 @@ const GoogleLens = ({ isVisible, onClose }) => {
   const [mode, setMode] = useState('search');
   const [data, setData] = useState(null);
 
+
+
   useEffect(() => {
     if (isVisible) {
       defineCustomElements(window)
       openCamera();
+      
     }
   }, [isVisible]);
 
   const openCamera = async () => {
+    
     try {
       const image = await Camera.getPhoto({
         quality: 90,
         allowEditing: true,
         resultType: CameraResultType.Uri,
-        source: 'CAMERA'
+        source: 'CAMERA',
       });
       setPhotoURI(image.webPath);
     } catch (err) {
@@ -230,7 +234,7 @@ const GoogleLens = ({ isVisible, onClose }) => {
             <span className={Styles.arrowIcon}>›</span>
           </div>
           
-        
+          <button onClick={resetSession} className={Styles.resetBtn}>New Search</button>
           <div className={Styles.feedbackBar}>
             <div className={Styles.feedbackQuestion}>Are these results useful?</div>
             <div className={Styles.feedbackOptions}>
@@ -239,8 +243,7 @@ const GoogleLens = ({ isVisible, onClose }) => {
               <button className={Styles.closeBtn}>×</button>
             </div>
           </div>
-          
-        
+
           <div className={Styles.bottomNav}>
             <button className={Styles.navBtn}>
               <span className={Styles.navIcon}>←</span>
@@ -253,7 +256,6 @@ const GoogleLens = ({ isVisible, onClose }) => {
             </button>
           </div>
 
-          <button onClick={resetSession} className={Styles.resetBtn}>New Search</button>
         </div>
       )}
     </div>

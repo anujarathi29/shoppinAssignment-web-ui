@@ -95,9 +95,6 @@ const GoogleFeed = () => {
     }, []);
 
 
-    useEffect(()=> {
-        console.log('Weather data is : ', weatherContent)
-    },[weatherContent])
 
     if (loading) {
         return <div className={styles.loading}>Loading feed...</div>;
