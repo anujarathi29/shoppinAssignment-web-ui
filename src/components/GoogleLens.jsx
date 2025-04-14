@@ -15,6 +15,7 @@ const GoogleLens = ({ isVisible, onClose }) => {
   const [photoURI, setPhotoURI] = useState(null);
   const [isProcessing, setProcessing] = useState(false);
   const [mode, setMode] = useState('search');
+  const [showFeedback, setShowFeedback] = useState(true);
   const [data, setData] = useState(null);
 
 
@@ -95,6 +96,10 @@ const GoogleLens = ({ isVisible, onClose }) => {
     setData(null);
     openCamera();
   };
+
+  const closeFeedback = () => {
+      setShowFeedback(false)
+  }
 
   const switchMode = (newMode) => {
     setMode(newMode);
@@ -235,14 +240,14 @@ const GoogleLens = ({ isVisible, onClose }) => {
           </div>
           
           <button onClick={resetSession} className={Styles.resetBtn}>New Search</button>
-          <div className={Styles.feedbackBar}>
+        {showFeedback && <div className={Styles.feedbackBar}>
             <div className={Styles.feedbackQuestion}>Are these results useful?</div>
             <div className={Styles.feedbackOptions}>
-              <button className={Styles.feedbackBtn}>Yes</button>
-              <button className={Styles.feedbackBtn}>No</button>
-              <button className={Styles.closeBtn}>×</button>
+              <button onClick={closeFeedback} className={Styles.feedbackBtn}>Yes</button>
+              <button onClick={closeFeedback} className={Styles.feedbackBtn}>No</button>
+              <button onClick={closeFeedback} className={Styles.closeBtn}>×</button>
             </div>
-          </div>
+          </div>}
 
           <div className={Styles.bottomNav}>
             <button className={Styles.navBtn}>
