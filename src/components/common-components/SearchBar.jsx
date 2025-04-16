@@ -35,6 +35,41 @@ const SearchBar = () => {
     'can you die from too much Netflix?'
   ];
 
+  useEffect(() => {
+    
+    let scrollY = 0;
+    
+    if (inputFocused) {
+      scrollY = window.scrollY;
+
+      document.body.style.position = 'fixed';
+      document.body.style.top = `-${scrollY}px`;
+      document.body.style.width = '100%';
+      document.body.style.overflow = 'hidden';
+    } else {
+
+      const scrollY = parseInt((document.body.style.top || '0').replace('px', '')) * -1;
+      document.body.style.position = '';
+      document.body.style.top = '';
+      document.body.style.width = '';
+      document.body.style.overflow = '';
+
+      window.scrollTo(0, scrollY);
+    }
+    
+    return () => {
+      document.body.style.position = '';
+      document.body.style.top = '';
+      document.body.style.width = '';
+      document.body.style.overflow = '';
+      
+      if (document.body.style.top) {
+        const scrollY = parseInt(document.body.style.top.replace('px', '')) * -1;
+        window.scrollTo(0, scrollY);
+      }
+    };
+  }, [inputFocused]);
+  
 
   useEffect(() => {
     if (recognizedText && inputRef.current) {
@@ -42,6 +77,30 @@ const SearchBar = () => {
       setSearchText(recognizedText);
     }
   }, [recognizedText]);
+
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (
+        suggestionsRef.current && 
+        !suggestionsRef.current.contains(event.target) &&
+        inputRef.current && 
+        !inputRef.current.contains(event.target)
+      ) {
+        setInputFocused(false);
+      }
+    };
+  
+    if (inputFocused) {
+      document.addEventListener('mousedown', handleClickOutside);
+      document.addEventListener('touchstart', handleClickOutside);
+    }
+    
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+      document.removeEventListener('touchstart', handleClickOutside);
+    };
+  }, [inputFocused]);
+
 
   useEffect(() => {
      const handleClickOutside = (event) => {
@@ -84,7 +143,10 @@ const SearchBar = () => {
 };
 
 const handleBlur = () => {
-  setPlaceholderText('Search');
+  if (suggestionsRef.current && !suggestionsRef.current.contains(e.relatedTarget)) {
+    setPlaceholderText('Search');
+    setInputFocused(false);
+  }
 }
   const submitSearch = () => {
     if (searchText.trim()) {

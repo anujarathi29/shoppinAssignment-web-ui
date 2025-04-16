@@ -106,6 +106,11 @@ const GoogleLens = ({ isVisible, onClose }) => {
     if (photoURI || data) resetSession();
   };
 
+
+  const handleBack = () => {
+    window.location.reload()
+  }
+
   return (
     <div className={`${Styles.lensContainer} ${isVisible ? Styles.visible : ''}`}>
       <header className={Styles.lensHeader}>
@@ -250,7 +255,7 @@ const GoogleLens = ({ isVisible, onClose }) => {
           </div>}
 
           <div className={Styles.bottomNav}>
-            <button className={Styles.navBtn}>
+            <button onClick={handleBack} className={Styles.navBtn}>
               <span className={Styles.navIcon}>←</span>
             </button>
             <button className={Styles.navBtn}>
